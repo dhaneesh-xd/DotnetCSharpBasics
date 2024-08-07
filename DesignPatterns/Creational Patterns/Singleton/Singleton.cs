@@ -9,7 +9,10 @@ namespace DesignPatterns.Singleton
     public class Singleton
     {
         private static int i = 0;
-        private Singleton() { i++; Console.WriteLine($"SingletonClass constructor called count {i}"); } //adding private will prevent the invoke of instantiation
+        private Singleton() //adding private will prevent the invoke of instantiation
+        { 
+            i++; Console.WriteLine($"SingletonClass constructor called count {i}"); 
+        } 
         private static Singleton? instance;
         public static Singleton GetInstance()
         {

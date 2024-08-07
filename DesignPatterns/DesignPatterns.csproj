@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Behavioral Patterns\" />
+    <Folder Include="Structural Patterns\" />
+  </ItemGroup>
+
 </Project>
