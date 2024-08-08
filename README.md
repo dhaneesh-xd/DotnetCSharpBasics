@@ -1,2 +1,2 @@
 # DotnetCSharpBasics
-Under process.. soon I will update fully
+Under progress.. soon I will update fully
