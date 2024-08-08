@@ -14,7 +14,7 @@ namespace DesignPatterns.Singleton
             i++; Console.WriteLine($"SingletonClass constructor called count {i}"); 
         } 
         private static Singleton? instance;
-        public static Singleton GetInstance()
+        public static Singleton GetInstance() //here return type is class object
         {
             if (instance == null) //lazy instantiation
                 instance = new Singleton();
