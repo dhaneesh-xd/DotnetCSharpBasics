@@ -2,7 +2,21 @@ Creational Patterns:
 Singleton:
 	Only one instance is created for a class no matter how many times you called it.
 Factory Method:
-	A interface : class inherit that interface : An abstract class with abstract method which returns that interface : Another class inherit the abstract class.
+	A interface : class inherit that interface
+	An abstract class with abstract method which returns that interface
+	Another class inherit the abstract class.
 Builder Method:
-	Class having parameters : interface created according to the paramters : interface inherited to other class that uses the first class : Another class created with method that getting the interface as input then implement interface parameter.
+	Class having parameters
+	interface created according to the paramters
+	interface inherited to other class that uses the first class
+	Another class created with method that getting the interface as input then implement interface parameter
+Prototype Pattern:
+	Interface created with clone prpoerty
+	Class inherit that interface and clone method returns the class object
+Adapter Pattern:
+	Create an interface
+	Implement class with required method
+	create another class and inherit the interface, create object of above class in constructor (delegate)
+
+
 

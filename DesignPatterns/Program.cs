@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Creational_Patterns.Builder_Pattern;
+﻿using DesignPatterns.Creational_Patterns.Adapter_Pattern;
+using DesignPatterns.Creational_Patterns.Builder_Pattern;
 using DesignPatterns.Creational_Patterns.Factory_Method;
 using DesignPatterns.Creational_Patterns.Prototype_Pattern;
 using DesignPatterns.Singleton;
@@ -21,6 +22,10 @@ Console.WriteLine("------------------------------------------");
 Console.WriteLine("Prototype Pattern");
 Console.WriteLine("------------------------------------------");
 InitiatePrototypePattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Adapter Pattern");
+Console.WriteLine("------------------------------------------");
+InitiateAdapterPattern();
 Console.WriteLine("------------------------------------------");
 void InitiateSingleton()
 {
@@ -74,4 +79,10 @@ void InitiatePrototypePattern()
     IVehicles cloneObj2 = realObj2.Clone();
     realObj2.Type();
     cloneObj2.Type();
+}
+void InitiateAdapterPattern()
+{
+    BluetoothEarphone bluetoothEarphone = new BluetoothEarphone();
+    IMusic music = new WiredEarphone(bluetoothEarphone); // passing the class function into other class (delegating)
+    music.Player();
 }
