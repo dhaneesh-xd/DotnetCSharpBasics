@@ -1,17 +1,22 @@
-﻿using DesignPatterns.Creational_Patterns.Factory_Method;
+﻿using DesignPatterns.Creational_Patterns.Builder_Pattern;
+using DesignPatterns.Creational_Patterns.Factory_Method;
 using DesignPatterns.Singleton;
 
 Console.WriteLine("Design Pattern. Happy Coding");
 Console.WriteLine("Creational Patterns: ");
-Console.WriteLine("----------------------------");
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("Singleton");
-Console.WriteLine("----------------------------");
+Console.WriteLine("------------------------------------------");
 InitiateSingleton();
-Console.WriteLine("----------------------------");
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("Factory Nethod");
-Console.WriteLine("----------------------------");
+Console.WriteLine("------------------------------------------");
 InitiateFactoryMethod();
-Console.WriteLine("----------------------------");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Builder Pattern");
+Console.WriteLine("------------------------------------------");
+InitiateBuilderPattern();
+Console.WriteLine("------------------------------------------");
 void InitiateSingleton()
 {
     Singleton singleton1 = Singleton.GetInstance();
@@ -35,7 +40,6 @@ void InitiateFactoryMethod()
     IdentifySound identifySound2 = new Fishes();
     IAnimals animals2 = identifySound2.GetAnimals();
     animals2.Sound();
-    Console.WriteLine("----------------------------");
     IAnimalsNonFM animalsNonFM1 = new DogNonFM();
     animalsNonFM1.Sound();
     IAnimalsNonFM animalsNonFM2 = new CatNonFM();
@@ -45,5 +49,12 @@ void InitiateFactoryMethod()
      Factory method is more encapsulated and loose coupling..
      so it can easy extend in future
      */
-
+}
+void InitiateBuilderPattern()
+{
+    TeaDistributer teaDistributer = new TeaDistributer(); // it will give encpsulation to the object
+    ITeaPrepare teaPrepare = new GreenTea(); 
+    teaDistributer.TeaDelivery(teaPrepare); //object to object interaction
+    Tea tea = teaPrepare.GetTea();
+    tea.PrepareTea();
 }
