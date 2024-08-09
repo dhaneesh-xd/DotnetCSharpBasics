@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Creational_Patterns.Builder_Pattern;
 using DesignPatterns.Creational_Patterns.Factory_Method;
+using DesignPatterns.Creational_Patterns.Prototype_Pattern;
 using DesignPatterns.Singleton;
 
 Console.WriteLine("Design Pattern. Happy Coding");
@@ -16,6 +17,10 @@ Console.WriteLine("------------------------------------------");
 Console.WriteLine("Builder Pattern");
 Console.WriteLine("------------------------------------------");
 InitiateBuilderPattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Prototype Pattern");
+Console.WriteLine("------------------------------------------");
+InitiatePrototypePattern();
 Console.WriteLine("------------------------------------------");
 void InitiateSingleton()
 {
@@ -57,4 +62,16 @@ void InitiateBuilderPattern()
     teaDistributer.TeaDelivery(teaPrepare); //object to object interaction
     Tea tea = teaPrepare.GetTea();
     tea.PrepareTea();
+}
+void InitiatePrototypePattern()
+{
+    IVehicles realObj1 = new Car();
+    IVehicles cloneObj1 = realObj1.Clone();
+    realObj1.Type(); //both will be same due to clone property
+    cloneObj1.Type(); //same output
+
+    IVehicles realObj2 = new Bike();
+    IVehicles cloneObj2 = realObj2.Clone();
+    realObj2.Type();
+    cloneObj2.Type();
 }

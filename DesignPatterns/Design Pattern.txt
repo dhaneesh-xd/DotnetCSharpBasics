@@ -1,0 +1,8 @@
+Creational Patterns:
+Singleton:
+	Only one instance is created for a class no matter how many times you called it.
+Factory Method:
+	A interface : class inherit that interface : An abstract class with abstract method which returns that interface : Another class inherit the abstract class.
+Builder Method:
+	Class having parameters : interface created according to the paramters : interface inherited to other class that uses the first class : Another class created with method that getting the interface as input then implement interface parameter.
+
