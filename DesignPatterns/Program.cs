@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Creational_Patterns.Adapter_Pattern;
+﻿using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
+using DesignPatterns.Creational_Patterns.Adapter_Pattern;
 using DesignPatterns.Creational_Patterns.Bridge_Pattern;
 using DesignPatterns.Creational_Patterns.Builder_Pattern;
 using DesignPatterns.Creational_Patterns.Factory_Method;
@@ -6,7 +7,10 @@ using DesignPatterns.Creational_Patterns.Prototype_Pattern;
 using DesignPatterns.Singleton;
 
 Console.WriteLine("Design Pattern. Happy Coding");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("Creational Patterns: ");
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Singleton");
 InitiateSingleton();
@@ -14,11 +18,18 @@ Console.WriteLine("------------------------------------------");
 Console.WriteLine("Factory Method");
 InitiateFactoryMethod();
 Console.WriteLine("------------------------------------------");
+Console.WriteLine("Abstract Factory Pattern");
+InitiateAbstractFactoryPattern();
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("Builder Pattern");
 InitiateBuilderPattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Prototype Pattern");
 InitiatePrototypePattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Structural Patterns: ");
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Adapter Pattern");
 InitiateAdapterPattern();
@@ -58,6 +69,16 @@ void InitiateFactoryMethod()
      Factory method is more encapsulated and loose coupling..
      so it can easy extend in future
      */
+}
+void InitiateAbstractFactoryPattern()
+{
+    AllWaterSource allWaterSource = new Home(); //encapsulatoin of object creation 
+    WaterConnection waterConnection = new WaterConnection(allWaterSource);
+    waterConnection.WaterSource();
+
+    allWaterSource = new Industry();
+    waterConnection = new WaterConnection(allWaterSource);
+    waterConnection.WaterSource();
 }
 void InitiateBuilderPattern()
 {
