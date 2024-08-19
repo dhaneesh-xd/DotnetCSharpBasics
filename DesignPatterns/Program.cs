@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Creational_Patterns.Adapter_Pattern;
+using DesignPatterns.Creational_Patterns.Bridge_Pattern;
 using DesignPatterns.Creational_Patterns.Builder_Pattern;
 using DesignPatterns.Creational_Patterns.Factory_Method;
 using DesignPatterns.Creational_Patterns.Prototype_Pattern;
@@ -8,24 +9,22 @@ Console.WriteLine("Design Pattern. Happy Coding");
 Console.WriteLine("Creational Patterns: ");
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Singleton");
-Console.WriteLine("------------------------------------------");
 InitiateSingleton();
 Console.WriteLine("------------------------------------------");
-Console.WriteLine("Factory Nethod");
-Console.WriteLine("------------------------------------------");
+Console.WriteLine("Factory Method");
 InitiateFactoryMethod();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Builder Pattern");
-Console.WriteLine("------------------------------------------");
 InitiateBuilderPattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Prototype Pattern");
-Console.WriteLine("------------------------------------------");
 InitiatePrototypePattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Adapter Pattern");
-Console.WriteLine("------------------------------------------");
 InitiateAdapterPattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Bridge Pattern");
+InitiateBridgePattern();
 Console.WriteLine("------------------------------------------");
 void InitiateSingleton()
 {
@@ -85,4 +84,16 @@ void InitiateAdapterPattern()
     BluetoothEarphone bluetoothEarphone = new BluetoothEarphone();
     IMusic music = new WiredEarphone(bluetoothEarphone); // passing the class function into other class (delegating)
     music.Player();
+}
+void InitiateBridgePattern()
+{
+    IceCreamQuantity[] iceCreamQuantities = new IceCreamQuantity[] //abstraction
+        {
+            new CupIcreCream ("Good", new ChocolateIceCream()),  //decoupling
+            new CupIcreCream ("Good", new VanillaIceCream())
+        };
+    foreach(var iceCreamQuantity in iceCreamQuantities)
+    {
+        iceCreamQuantity.Quantity();
+    }
 }
