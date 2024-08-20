@@ -5,6 +5,8 @@ using DesignPatterns.Creational_Patterns.Builder_Pattern;
 using DesignPatterns.Creational_Patterns.Factory_Method;
 using DesignPatterns.Creational_Patterns.Prototype_Pattern;
 using DesignPatterns.Singleton;
+using DesignPatterns.Structural_Patterns.Composite_Pattern;
+using DesignPatterns.Structural_Patterns.Decorator_Pattern;
 
 Console.WriteLine("Design Pattern. Happy Coding");
 Console.WriteLine("------------------------------------------");
@@ -36,6 +38,12 @@ InitiateAdapterPattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Bridge Pattern");
 InitiateBridgePattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Composite pattern");
+InitiateCompositePattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Decorator pattern");
+InitiateDecoratorPattern();
 Console.WriteLine("------------------------------------------");
 void InitiateSingleton()
 {
@@ -117,4 +125,28 @@ void InitiateBridgePattern()
     {
         iceCreamQuantity.Quantity();
     }
+}
+void InitiateCompositePattern()
+{
+    Morning morning = new Morning();
+    Afternoon afternoon = new Afternoon();
+    Evening evening = new Evening();
+    Night night = new Night();
+    Operations operations = new Operations(); //treat individual and group objects uniformly --tree like structure
+    operations.Add(morning);
+    operations.Add(afternoon);
+    operations.Add(evening);
+    operations.Message();
+    operations.Remove(morning);
+    operations.Remove(afternoon);
+    operations.Remove(evening);
+    operations.Add(night);
+    operations.Message();
+}
+void InitiateDecoratorPattern()
+{
+    ICake cake = new HeatingProcess();
+    cake = new Flour(cake); //added responsibilities to object without affecting other objects
+    cake = new Egg(cake);
+    cake.Bake();
 }
