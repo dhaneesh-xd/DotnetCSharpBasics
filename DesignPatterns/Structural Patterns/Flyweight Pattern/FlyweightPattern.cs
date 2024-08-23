@@ -27,6 +27,15 @@ namespace DesignPatterns.Structural_Patterns.Flyweight_Pattern
             Console.WriteLine($"Gender: {Gender} || Power level: {power}");
         }
     }
+    public class ErrorCharacter : ICharacter
+    {
+        public char Gender { get; set; }
+        public void Display(int power)
+        {
+            Console.WriteLine($"Gender: Not allowed || Power level: Error Processing -- Enter again");
+        }
+    }
+
     public class CharacterDisplay()
     {
         private readonly Dictionary<char, ICharacter> characters = new Dictionary<char, ICharacter> ();
@@ -43,7 +52,9 @@ namespace DesignPatterns.Structural_Patterns.Flyweight_Pattern
                         characters[key] = new Lizie();
                         break;
                     default:
-                        throw new ArgumentException("Character not supported");
+                        characters[key] = new ErrorCharacter();
+                        break;
+                        
                 }
             }
             return characters[key];

@@ -172,6 +172,8 @@ void InitiateFlyweightPattern()
     CharacterDisplay display = new CharacterDisplay();
     ICharacter character = display.GetCharacter('M'); 
     character.Display(1000);
-    character = display.GetCharacter('F'); //shared data
+    character = display.GetCharacter('F'); //accessing shared data to reduce memory
+    character.Display(1000);
+    character = display.GetCharacter('Z'); 
     character.Display(1000);
 }
