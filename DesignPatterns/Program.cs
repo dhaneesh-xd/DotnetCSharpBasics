@@ -8,6 +8,7 @@ using DesignPatterns.Singleton;
 using DesignPatterns.Structural_Patterns.Composite_Pattern;
 using DesignPatterns.Structural_Patterns.Decorator_Pattern;
 using DesignPatterns.Structural_Patterns.Facade_Pattern;
+using DesignPatterns.Structural_Patterns.Flyweight_Pattern;
 
 Console.WriteLine("Design Pattern. Happy Coding");
 Console.WriteLine("------------------------------------------");
@@ -48,6 +49,9 @@ InitiateDecoratorPattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Facade pattern");
 InititateFacadePattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Flyweight pattern");
+InitiateFlyweightPattern();
 Console.WriteLine("------------------------------------------");
 
 void InitiateSingleton()
@@ -162,5 +166,12 @@ void InititateFacadePattern()
     SoftwareOpening softwareOpening = new SoftwareOpening(cpu, monitor); //reduces the complexicity
     softwareOpening.OpenSofware("Media Player");
     softwareOpening.CloseSoftware();
-
+}
+void InitiateFlyweightPattern()
+{
+    CharacterDisplay display = new CharacterDisplay();
+    ICharacter character = display.GetCharacter('M'); 
+    character.Display(1000);
+    character = display.GetCharacter('F'); //shared data
+    character.Display(1000);
 }
