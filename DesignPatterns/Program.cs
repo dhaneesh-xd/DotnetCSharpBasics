@@ -7,6 +7,7 @@ using DesignPatterns.Creational_Patterns.Prototype_Pattern;
 using DesignPatterns.Singleton;
 using DesignPatterns.Structural_Patterns.Composite_Pattern;
 using DesignPatterns.Structural_Patterns.Decorator_Pattern;
+using DesignPatterns.Structural_Patterns.Facade_Pattern;
 
 Console.WriteLine("Design Pattern. Happy Coding");
 Console.WriteLine("------------------------------------------");
@@ -45,6 +46,10 @@ Console.WriteLine("------------------------------------------");
 Console.WriteLine("Decorator pattern");
 InitiateDecoratorPattern();
 Console.WriteLine("------------------------------------------");
+Console.WriteLine("Facade pattern");
+InititateFacadePattern();
+Console.WriteLine("------------------------------------------");
+
 void InitiateSingleton()
 {
     Singleton singleton1 = Singleton.GetInstance();
@@ -149,4 +154,13 @@ void InitiateDecoratorPattern()
     cake = new Flour(cake); //added responsibilities to object without affecting other objects
     cake = new Egg(cake);
     cake.Bake();
+}
+void InititateFacadePattern()
+{
+    CPU cpu = new CPU();
+    MonitorDisplay monitor = new MonitorDisplay();
+    SoftwareOpening softwareOpening = new SoftwareOpening(cpu, monitor); //reduces the complexicity
+    softwareOpening.OpenSofware("Media Player");
+    softwareOpening.CloseSoftware();
+
 }
