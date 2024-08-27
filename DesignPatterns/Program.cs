@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
+﻿using DesignPatterns.Behavioral_Patterns.Chain_of_Responsibility;
+using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
 using DesignPatterns.Creational_Patterns.Adapter_Pattern;
 using DesignPatterns.Creational_Patterns.Bridge_Pattern;
 using DesignPatterns.Creational_Patterns.Builder_Pattern;
@@ -56,6 +57,13 @@ InitiateFlyweightPattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Proxy pattern");
 InitiateProxyPattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Behavioral Patterns: ");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Chain of Responsibility");
+InitiateChainOfResponsibility();
 Console.WriteLine("------------------------------------------");
 
 void InitiateSingleton()
@@ -185,7 +193,16 @@ void InitiateProxyPattern()
 {
     IPrint secondPrint = new SecondPrint("1st print");
     IPrint secondPrint2 = new SecondPrint("2nd print");
-    secondPrint.Printing(); //provides a surrogate or placeholder for another object to control access to it
+    secondPrint.Printing(); 
     secondPrint.Printing(); //won't show loading message
-    secondPrint2.Printing();
+    secondPrint2.Printing(); //provides a surrogate or placeholder for another object to control access to it
+}
+void InitiateChainOfResponsibility()
+{
+    Number number1 = new EvenNumber();
+    Number number2 = new OddNumber();
+    number1.NextNumber(number2); //pass the request to another class
+    number1.CheckNumber(5);
+    number1.CheckNumber(50);
+    number1.CheckNumber(15);
 }
