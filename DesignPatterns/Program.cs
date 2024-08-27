@@ -9,6 +9,7 @@ using DesignPatterns.Structural_Patterns.Composite_Pattern;
 using DesignPatterns.Structural_Patterns.Decorator_Pattern;
 using DesignPatterns.Structural_Patterns.Facade_Pattern;
 using DesignPatterns.Structural_Patterns.Flyweight_Pattern;
+using DesignPatterns.Structural_Patterns.Proxy_Pattern;
 
 Console.WriteLine("Design Pattern. Happy Coding");
 Console.WriteLine("------------------------------------------");
@@ -52,6 +53,9 @@ InititateFacadePattern();
 Console.WriteLine("------------------------------------------");
 Console.WriteLine("Flyweight pattern");
 InitiateFlyweightPattern();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Proxy pattern");
+InitiateProxyPattern();
 Console.WriteLine("------------------------------------------");
 
 void InitiateSingleton()
@@ -176,4 +180,12 @@ void InitiateFlyweightPattern()
     character.Display(1000);
     character = display.GetCharacter('Z'); 
     character.Display(1000);
+}
+void InitiateProxyPattern()
+{
+    IPrint secondPrint = new SecondPrint("1st print");
+    IPrint secondPrint2 = new SecondPrint("2nd print");
+    secondPrint.Printing(); //provides a surrogate or placeholder for another object to control access to it
+    secondPrint.Printing(); //won't show loading message
+    secondPrint2.Printing();
 }
