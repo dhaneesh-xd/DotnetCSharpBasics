@@ -1,4 +1,6 @@
 ﻿using DesignPatterns.Behavioral_Patterns.Chain_of_Responsibility;
+using DesignPatterns.Behavioral_Patterns.Command;
+using DesignPatterns.Behavioral_Patterns.Interpreter;
 using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
 using DesignPatterns.Creational_Patterns.Adapter_Pattern;
 using DesignPatterns.Creational_Patterns.Bridge_Pattern;
@@ -65,6 +67,15 @@ Console.WriteLine("------------------------------------------");
 Console.WriteLine("Chain of Responsibility");
 InitiateChainOfResponsibility();
 Console.WriteLine("------------------------------------------");
+Console.WriteLine("Command");
+InitiateCommand();
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Interpreter");
+InitiateInterpreter();
+Console.WriteLine("------------------------------------------");
+
+
+
 
 void InitiateSingleton()
 {
@@ -205,4 +216,18 @@ void InitiateChainOfResponsibility()
     number1.CheckNumber(5);
     number1.CheckNumber(50);
     number1.CheckNumber(15);
+}
+void InitiateCommand()
+{
+    Switch sw = new Switch();
+    ISwitch ISw = new SwitchBoard(sw);
+    ISw.SwitchOn();
+    ISw.SwitchOff();
+}
+void InitiateInterpreter()
+{
+    IString str = new StringExpression("Hello");
+    bool result1 = str.CheckString("Hello, Good morning!");
+    bool result2 = str.CheckString("Good night!");
+    Console.WriteLine($"{result1},{result2}");
 }
