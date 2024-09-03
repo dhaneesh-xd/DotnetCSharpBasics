@@ -2,6 +2,7 @@
 using DesignPatterns.Behavioral_Patterns.Command;
 using DesignPatterns.Behavioral_Patterns.Interpreter;
 using DesignPatterns.Behavioral_Patterns.Iterator;
+using DesignPatterns.Behavioral_Patterns.Mediator;
 using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
 using DesignPatterns.Creational_Patterns.Adapter_Pattern;
 using DesignPatterns.Creational_Patterns.Bridge_Pattern;
@@ -91,6 +92,9 @@ public class DesignPatternsExecute
         Console.WriteLine("------------------------------------------");
         Console.WriteLine("Iterator");
         InitiateIterator();
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("Mediator");
+        InitiateMediator();
         Console.WriteLine("------------------------------------------");
     }
     void InitiateSingleton()
@@ -255,6 +259,15 @@ public class DesignPatternsExecute
         var iterator = AddNumber.CreateAddFunction();
         while (iterator.checkNumber())
             Console.WriteLine(iterator.Add());
+    }
+    void InitiateMediator()
+    {
+        var mediator = new ExecutePassing();
+        var firstPerson = new FirstPerson(mediator);
+        var secondPerson = new SecondPerson(mediator);
+        mediator.SetFirstPerson(firstPerson);
+        mediator.SetSecondPerson(secondPerson);
+        firstPerson.Pass("Hello, Second Person");
     }
 }
 
