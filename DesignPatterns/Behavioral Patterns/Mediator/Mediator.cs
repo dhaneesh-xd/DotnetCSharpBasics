@@ -10,6 +10,14 @@ namespace DesignPatterns.Behavioral_Patterns.Mediator
     {
         void Pass(string message, Person person);
     }
+    public abstract class Person
+    {
+        protected IMediator mediator;
+        public Person(IMediator mediator)
+        {
+            this.mediator = mediator;
+        }
+    }
     public class ExecutePassing : IMediator
     {
         private FirstPerson firstPerson;
@@ -28,15 +36,6 @@ namespace DesignPatterns.Behavioral_Patterns.Mediator
                 secondPerson.Receive(message);
             else
                 firstPerson.Receive(message);
-
-        }
-    }
-    public abstract class Person
-    {
-        protected IMediator mediator;
-        public Person(IMediator mediator)
-        {
-            this.mediator = mediator;
         }
     }
     public class FirstPerson : Person

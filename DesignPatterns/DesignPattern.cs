@@ -3,6 +3,7 @@ using DesignPatterns.Behavioral_Patterns.Command;
 using DesignPatterns.Behavioral_Patterns.Interpreter;
 using DesignPatterns.Behavioral_Patterns.Iterator;
 using DesignPatterns.Behavioral_Patterns.Mediator;
+using DesignPatterns.Behavioral_Patterns.Memento;
 using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
 using DesignPatterns.Creational_Patterns.Adapter_Pattern;
 using DesignPatterns.Creational_Patterns.Bridge_Pattern;
@@ -95,6 +96,9 @@ public class DesignPatternsExecute
         Console.WriteLine("------------------------------------------");
         Console.WriteLine("Mediator");
         InitiateMediator();
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("Memento");
+        InitiateMemento();
         Console.WriteLine("------------------------------------------");
     }
     void InitiateSingleton()
@@ -268,6 +272,16 @@ public class DesignPatternsExecute
         mediator.SetFirstPerson(firstPerson);
         mediator.SetSecondPerson(secondPerson);
         firstPerson.Pass("Hello, Second Person");
+    }
+    void InitiateMemento()
+    {
+        MiddleState middleState = new MiddleState();
+        FinalState finalState = new FinalState();
+        middleState.State = "State 3";
+        finalState.SaveState(middleState.SaveState());
+        middleState.State = "State 2";
+        middleState.GetInitialState(finalState.GetState());
+        Console.WriteLine(middleState.State); //state 3
     }
 }
 
