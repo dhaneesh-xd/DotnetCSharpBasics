@@ -4,6 +4,9 @@ using DesignPatterns.Behavioral_Patterns.Interpreter;
 using DesignPatterns.Behavioral_Patterns.Iterator;
 using DesignPatterns.Behavioral_Patterns.Mediator;
 using DesignPatterns.Behavioral_Patterns.Memento;
+using DesignPatterns.Behavioral_Patterns.Observer;
+using DesignPatterns.Behavioral_Patterns.State;
+using DesignPatterns.Behavioral_Patterns.TemplateMethod;
 using DesignPatterns.Creational_Patterns.Abstract_Factory_Pattern;
 using DesignPatterns.Creational_Patterns.Adapter_Pattern;
 using DesignPatterns.Creational_Patterns.Bridge_Pattern;
@@ -99,6 +102,15 @@ public class DesignPatternsExecute
         Console.WriteLine("------------------------------------------");
         Console.WriteLine("Memento");
         InitiateMemento();
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("Observer");
+        InitiateObserver();
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("State");
+        InitiateState();
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("Template Method");
+        InitiateTemplateMethod();
         Console.WriteLine("------------------------------------------");
     }
     void InitiateSingleton()
@@ -282,6 +294,28 @@ public class DesignPatternsExecute
         middleState.State = "State 2";
         middleState.GetInitialState(finalState.GetState());
         Console.WriteLine(middleState.State); //state 3
+    }
+    void InitiateObserver()
+    {
+        ClassOne classOne = new ClassOne();
+        IObserver observer1 = new Observer("Observer 1");
+        IObserver observer2 = new Observer("Observer 2");
+        classOne.Monitoring(observer1);
+        classOne.Monitoring(observer2);
+        classOne.Notify("Updating...");
+    }
+    void InitiateState()
+    {
+        ListStateName listStateName = new ListStateName();
+        listStateName.SetState(new StateOne());
+        listStateName.HandleRequest();
+        listStateName.SetState(new StateTwo());
+        listStateName.HandleRequest();
+    }
+    void InitiateTemplateMethod()
+    {
+        AbstractSteps steps = new Steps();
+        steps.StepsTemplate();
     }
 }
 
