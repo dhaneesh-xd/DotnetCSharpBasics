@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OOPS.Abstraction;
 using OOPS.Encapsulation;
 using OOPS.Inheritance;
 using OOPS.Polymorphism;
@@ -65,6 +66,12 @@ namespace OOPS
         }
         public void InitiateAbstraction()
         {
+            Area circle = new Circle(1.5);
+            Area square = new Square(5);
+            circle.CalculatingArea();
+            circle.CalculateArea();
+            square.CalculatingArea();
+            square.CalculateArea();
 
         }
     }
