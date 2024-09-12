@@ -1,4 +1,5 @@
-﻿using SOLIDPrinciples.Single_Responsibility_Principle__SRP_;
+﻿using SOLIDPrinciples.Liskov_Substitution_Principle__LSP_;
+using SOLIDPrinciples.Single_Responsibility_Principle__SRP_;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,9 @@ namespace SOLIDPrinciples
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Open Closed Principle");
             InitiateOCP();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("Liskov Substitute Principle");
+            InitiateLSP();
         }
         public void InitiateSRP() //each class do solely purpose alone
         {
@@ -48,6 +52,14 @@ namespace SOLIDPrinciples
             Console.WriteLine("Status: " +success.Status());
             var failed = new Report(new FailedStatus());
             Console.WriteLine("Status: "+failed.Status());
+        }
+        public void InitiateLSP()
+        {
+            LivingBeingTypes beingTypes = new LivingBeingTypes();
+            LivingBeing herbi = new Herbivores(); //both class Herbivores and Carnivores does not affect the 
+            LivingBeing carni = new Carnivores(); // LivingBeing abstract class this how LSP passes.
+            beingTypes.Types(herbi); 
+            beingTypes.Types(carni);
         }
     }
 }
