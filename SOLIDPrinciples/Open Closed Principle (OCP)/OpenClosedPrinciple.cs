@@ -6,38 +6,35 @@ using System.Threading.Tasks;
 
 namespace SOLIDPrinciples.Open_Closed_Principle__OCP_
 {
-    internal class OpenClosedPrinciple
+    public interface IStatusReport
     {
-        public interface IStatusReport
-        {
-            string Status();
-        }
-        public class SuccessStatus : IStatusReport
-        {
-            public string Status()
-            {
-                return "Success";
-            }
-        }
-        public class FailedStatus : IStatusReport
-        {
-            public string Status()
-            {
-                return "Failed";
-            }
-        }
-        public class Report
-        {
-            private readonly IStatusReport _statusReport;
-            public Report(IStatusReport statusReport)
-            {
-                _statusReport = statusReport;
-            }
-            public string Status()
-            {
-                return _statusReport.Status();
-            }
-        }
-
+        string Status();
     }
+    public class SuccessStatus : IStatusReport
+    {
+        public string Status()
+        {
+            return "Success";
+        }
+    }
+    public class FailedStatus : IStatusReport
+    {
+        public string Status()
+        {
+            return "Failed";
+        }
+    }
+    public class Report
+    {
+        private readonly IStatusReport _statusReport;
+        public Report(IStatusReport statusReport)
+        {
+            _statusReport = statusReport;
+        }
+        public string Status()
+        {
+            return _statusReport.Status();
+        }
+    }
+
 }
