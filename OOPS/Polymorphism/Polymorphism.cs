@@ -27,4 +27,19 @@ namespace OOPS.Polymorphism
             Console.WriteLine("Car");
         }
     }
+    public class Boat 
+    {
+        public void Details(string color)
+        {
+            Console.WriteLine($"Color : {color}");
+        }
+        public void Details(int modelnumber)
+        {
+            Console.WriteLine($"Model Number : {modelnumber}");
+        }
+        public void Details(string color, int modelnumber)
+        {
+            Console.WriteLine($"Color : {color} Model Number : {modelnumber}");
+        }
+    }
 }

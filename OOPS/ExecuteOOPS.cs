@@ -57,18 +57,22 @@ namespace OOPS
         }
         public void InitiatePolymorphism()
         {
-            Vehicle vehicle = new Vehicle();
+            Vehicle vehicle = new Vehicle(); 
             Vehicle car = new Car();
-            Vehicle bus = new Bus();
+            Vehicle bus = new Bus(); 
+            Boat boat = new Boat();
             vehicle.Name();
-            car.Name();
+            car.Name(); //method overriding
             bus.Name();
+            boat.Details(1991); //method overloading
+            boat.Details("Grey");
+            boat.Details("Grey", 1991);
         }
         public void InitiateAbstraction()
         {
             Area circle = new Circle(1.5);
-            Area square = new Square(5);
-            circle.CalculatingArea();
+            Area square = new Square(5); //creating object from base class which is abstract class
+            circle.CalculatingArea(); //so the implementation are can't seen
             circle.CalculateArea();
             square.CalculatingArea();
             square.CalculateArea();
